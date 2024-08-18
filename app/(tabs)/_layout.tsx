@@ -1,37 +1,25 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import {Tabs} from "expo-router";
+import {FontAwesome, Ionicons} from "@expo/vector-icons";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
-  );
+export default function TabsLayout() {
+    return (
+        <Tabs>
+            <Tabs.Screen name="post/index" options={{
+                headerTitle: 'Объявления',
+                title: 'Объявления',
+                tabBarIcon: ({ color, focused }) => <Ionicons size={28} name={focused ? 'add-circle' : 'add-circle-outline'} color={color} />,
+            }} />
+            <Tabs.Screen name="index" options={{
+                headerTitle: 'Главная',
+                title: 'Главная',
+                tabBarIcon: ({ color, focused }) => <Ionicons size={28} name={focused ? 'home' : 'home-outline'} color={color} />,
+            }} />
+            <Tabs.Screen name="user/index" options={{
+                headerTitle: 'Профиль',
+                title: 'Профиль',
+                tabBarIcon: ({ color, focused }) =>
+                    <FontAwesome size={28} name={focused ? 'user' : 'user-o'} color={color} />,
+            }} />
+        </Tabs>
+    )
 }
