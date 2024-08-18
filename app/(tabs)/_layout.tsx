@@ -4,9 +4,9 @@ import {FontAwesome, Ionicons} from "@expo/vector-icons";
 export default function TabsLayout() {
     return (
         <Tabs>
-            <Tabs.Screen name="post/index" options={{
-                headerTitle: 'Объявления',
-                title: 'Объявления',
+            <Tabs.Screen name="post" options={{
+                headerTitle: 'Разместить',
+                title: 'Разместить',
                 tabBarIcon: ({ color, focused }) => <Ionicons size={28} name={focused ? 'add-circle' : 'add-circle-outline'} color={color} />,
             }} />
             <Tabs.Screen name="index" options={{
