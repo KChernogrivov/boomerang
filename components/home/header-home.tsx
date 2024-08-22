@@ -1,6 +1,7 @@
 import {View, StyleSheet, Text, TextInput, Pressable} from "react-native";
 import {Ionicons} from "@expo/vector-icons";
 import React from "react";
+import {Colors} from "@/constants/Colors";
 
 export default function headerHome() {
     const [value, onChangeText] = React.useState('');
@@ -12,7 +13,7 @@ export default function headerHome() {
                     <Ionicons style={styles.searchBarIcon} name="search" size={18}/>
                     <TextInput style={styles.searchBarInput} inputMode='search' placeholder="Поиск"
                                onChangeText={text => onChangeText(text)}
-                               value={value}
+                               value={value} placeholderTextColor={"f4f4f4"}
                     />
                 </View>
                 <Pressable onPress={() => {
