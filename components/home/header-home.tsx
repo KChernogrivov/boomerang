@@ -10,13 +10,15 @@ export default function headerHome() {
         <View style={styles.header}>
             <View style={styles.search}>
                 <View style={styles.searchBar}>
-                    <Ionicons style={styles.searchBarIcon} name="search" size={18}/>
+                    <Ionicons style={styles.searchBarIcon} name="search" size={24} />
                     <TextInput style={styles.searchBarInput} inputMode='search' placeholder="Поиск"
                                onChangeText={text => onChangeText(text)}
+                               enterKeyHint="search"
                                value={value} placeholderTextColor={"f4f4f4"}
                     />
+                    <Ionicons style={styles.searchBarIcon} name="list" size={24} />
                 </View>
-                <Pressable onPress={() => {
+                <Pressable style={!value ? styles.searchClearHide : {}} onPress={() => {
                     onChangeText('')
                 }}>
                     <Text style={styles.searchClear}>Очистить</Text>
@@ -52,9 +54,13 @@ const styles = StyleSheet.create({
     },
     searchBarInput: {
         flex: 1,
+        height: 40,
         padding: 5,
     },
     searchClear: {
         color: '#fff',
+    },
+    searchClearHide: {
+        display: 'none'
     }
 })
