@@ -1,6 +1,7 @@
 import {View, Text, StyleSheet} from "react-native";
 import React, {useEffect} from "react";
 import {useLocalSearchParams, useNavigation} from "expo-router";
+import {postController} from "@/constants/Requests";
 
 export default function postPage() {
     const params = useLocalSearchParams();
@@ -11,6 +12,10 @@ export default function postPage() {
             headerShown: true,
             headerTitle: params.id,
         })
+
+        postController.getPost(1).then(response => {
+            console.log(response);
+        });
     }, [])
 
     return (

@@ -1,10 +1,17 @@
 import {View, StyleSheet, Text, TextInput, Pressable, FlatList} from "react-native";
 import {Ionicons} from "@expo/vector-icons";
-import React from "react";
+import React, {useEffect} from "react";
 import PostSmall from "@/components/home/postSmall";
+import {postController} from "@/constants/Requests";
 
 export default function posts() {
     const data = [{}, {}];
+
+    useEffect(() => {
+        postController.getPosts(1).then(response => {
+            console.log(response);
+        });
+    }, [])
 
     return (
         <View style={styles.main}>

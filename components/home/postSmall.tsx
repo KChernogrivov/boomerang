@@ -2,7 +2,7 @@ import {View, StyleSheet, Image, Text, Pressable} from "react-native";
 import React from "react";
 import {useRouter} from "expo-router";
 
-export default function PostSmall({id = 1}) {
+export default function PostSmall({id = 1, image = ''}) {
     const router = useRouter();
 
     return (
